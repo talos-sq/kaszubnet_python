@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="col-md-12 d-flex align-items-center justify-content-center" style="height: 80vh;">
+    <div class="container mt-3 text-center">
+        <h3>Logowanie:</h3>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3 mt-3">
+                <label>Login:</label>
+                {{form.username}}
+            </div>
+            <div class="mb-3">
+                <label>Hasło:</label>
+                {{form.password}}
+            </div>
+            <button type="submit" class="btn btn-warning">Zaloguj</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

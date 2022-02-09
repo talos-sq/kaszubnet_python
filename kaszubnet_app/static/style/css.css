@@ -1,0 +1,32 @@
+body{
+    font-family: 'Share Tech Mono', monospace;
+    color: #f4a22a;
+    margin:0px;
+}
+
+.screen{
+    background:radial-gradient(#5c3813, #191006);
+    height: 100vh;
+}
+
+#border-row{
+    height:10vh;
+}
+
+#main-panel{
+    border-style: solid;
+    border-color: #f4a22a;
+    border-width: 1px;
+    height: 80vh;
+}
+
+#upper-row{
+    border-bottom-style: solid;
+    border-color: #f4a22a;
+    border-width: 1px;
+    height: 5vh;
+}
+
+.btn-warning{
+    border-radius: 0px;
+}

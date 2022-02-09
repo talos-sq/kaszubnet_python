@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from kaszubnet_app.views import *
 
 urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
+    path('', IndexView.as_view(), name="index"),
+    path('user_menu/', UserMenuView.as_view(), name="user_menu"),
 ]
