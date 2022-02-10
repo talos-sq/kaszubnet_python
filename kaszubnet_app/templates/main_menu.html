@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block upper_row %}
+<div class="row d-flex align-items-center main-panel-upper-row">
+    <div class="col-md-9">
+        <p>//: {{ current_url }}</p>
+    </div>
+    <div class="col-md-3">
+        <div class="d-flex justify-content-between align-items-center">
+            {% now "d/m/Y" %}
+            <button class="btn btn-outline-warning"><i class="bi bi-gear-fill"></i></button>
+            <a href="{% url 'logout' %}" class="btn btn-outline-warning"><i class="bi bi-power"></i></i></a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-2 main-menu-menu">
+        <div class="row" style="height: 75vh;">
+            <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
+                <h3>Menu</h3>
+            </div>
+            <div class="col-12" style="height: 55vh;">
+                <ul class="list-group list-group-flush ">
+                    <li class="list-group-item">Frakcja</li>
+                    <li class="list-group-item">Kronika</li>
+                    <li class="list-group-item">Artefakty frakcyjne</li>
+                    <li class="list-group-item">Magazyn</li>
+                    <li class="list-group-item">Mapa ekspansji</li>
+                    <li class="list-group-item">Węzeł komunikacyjny</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7" style="height: 75vh;"></div>
+    <div class="col-md-3 main-menu-character-display">
+        Witaj: {{ character.name }}
+    </div>
+</div>
+{% endblock %}

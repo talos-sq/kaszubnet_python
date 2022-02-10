@@ -20,6 +20,8 @@ from kaszubnet_app.views import *
 urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name="index"),
-    path('user_menu/', UserMenuView.as_view(), name="user_menu"),
+    path('index/', IndexView.as_view(), name="index"),
+    path('logout/', LogoutView.as_view(), name="logout"),
+    path('user_menu/', UserMenuView.as_view(), name="user-menu"),
+    path('main_menu/<str:name>/', MainMenuView.as_view(), name="main-menu"),
 ]

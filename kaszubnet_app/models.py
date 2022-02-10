@@ -66,14 +66,14 @@ class Character(models.Model):
     birthdate = models.DateField(null=True, blank=True, )
     rank = models.IntegerField(choices=RANKS, default=2, verbose_name="Ranga")
     function = models.IntegerField(choices=FUNCTION, default=0, verbose_name="Funkcja")
-    abilities = models.ManyToManyField(Ability, verbose_name="Umiejętności")
+    abilities = models.ManyToManyField(Ability, blank=True, verbose_name="Umiejętności")
     outpost = models.IntegerField(choices=OUTPOSTS, default=4, verbose_name="Placówka")
     origin_outpost = models.CharField(blank=True, max_length=64, verbose_name="Miejsce pochodzenia")
     job = models.CharField(blank=True, max_length=64, verbose_name="Zawód")
     specialization = models.CharField(blank=True, max_length=64, verbose_name="Specjalizacje")
     religion = models.CharField(blank=True, max_length=64, verbose_name="Wiara")
     character_history = models.TextField(blank=True, )
-    old_town_presence = models.ManyToManyField(OTs, verbose_name="Pory Przybyszów")
+    old_town_presence = models.ManyToManyField(OTs, blank=True, verbose_name="Pory Przybyszów")
 
     def __str__(self):
         return self.name
