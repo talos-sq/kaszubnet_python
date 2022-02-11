@@ -1,10 +1,285 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block content %}
+<div class="col-md-12" style="height: 75vh; padding:0;">
+    <div class="overflow-auto" data-bs-spy="scroll" data-bs-target="#list-spy" data-bs-offset="400" tabindex="0"
+         style="height:75vh;">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center align-items-center" style="height: 15vh;">
+                <h2>Hierarchia Przystani</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-md-4 hierarchy-card">
+                <div class="col-12 d-flex justify-content-center align-items-center" style="height: 5vh; padding: 5vh 0 5vh 0;">
+                    <h2>Sztab</h2>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h5 class="hierarchy-hover" data-bs-toggle="collapse" href="#captain">
+                        ☸ Talos ☸
+                        <div class="collapse" id="captain">
+                            <div class="card card-body">
+                                <h5>Kapitan</h5>
+                                <p>Coś musiało się naprawdę zjebać że idziesz zawracać mu dupę,
+                                    o ile wg go zastaniesz w sztabówce,
+                                    a zazwyczaj Kapitana tam nie zastaniesz bo robi wielką politykę.
+                                    Pojawia się dopiero w sytuacjach kryzysowych żeby wskazać komu najebać. Trucie
+                                    niepotrzebnie dupy grozi meltdownem i samodestrukcją!!!!</p>
+                            </div>
+                        </div>
+                    </h5>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h5 class="hierarchy-hover" data-bs-toggle="collapse" href="#secondtocap">
+                        ✯ Mur ✯
+                        <div class="collapse" id="secondtocap">
+                            <div class="card card-body">
+                                <h5>Zastępca Kapitana</h5>
+                                <p>Prawa ręka i noga Kapitana, to On trzyma wszystko i wszystkich w ryzach gdy go nie
+                                    ma.
+                                    Wydaje ci się że potrzebujesz Talosa? Pojebało?! Zapieprzaj najpierw do Mura!!!!</p>
+                            </div>
+                        </div>
+                    </h5>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h5 class="hierarchy-hover" data-bs-toggle="collapse" href="#staff">
+                        ✰ Strzygoń ✰ Sierżant ✰ Wasyl ✰
+                        <div class="collapse" id="staff">
+                            <div class="card card-body">
+                                <h5>Sztabowcy</h5>
+                                <p>Najbardziej zaufani i zdeterminowani spośród wszystkich w rozwijaniu oraz zarządzaniu
+                                    frakcją.</p>
+                            </div>
+                        </div>
+                    </h5>
+                </div>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center align-items-center"
+                 style="height: 5vh; padding: 5vh 0 5vh 0;">
+                <h2>Piony Przystani</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 hierarchy-card">
+                <div class="col-12 d-flex justify-content-center align-items-center"
+                     style="height: 5vh; padding: 5vh 0 5vh 0;">
+                    <h2>Polit biuro</h2>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#politician">
+                        ✭ Talos ✭
+                        <div class="collapse" id="politician">
+                            <div class="card card-body">
+                                <h5>Szef-Polityk</h5>
+                                <p>Robi wielką politykę</p>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#counselor1">
+                        Hex
+                        <div class="collapse" id="counselor1">
+                            <div class="card card-body">
+                                <h5>Doradca</h5>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#counselor2">
+                        Pastor
+                        <div class="collapse" id="counselor2">
+                            <div class="card card-body">
+                                <h5>Doradca</h5>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center" style="height: 5vh;">
+                    <h2> - Wywiad - </h2>
+                </div>
+            </div>
+            <div class="col-4 hierarchy-card">
+                <div class="col-12 d-flex justify-content-center align-items-center"
+                     style="height: 5vh; padding: 5vh 0 5vh 0;">
+                    <h2 class="hierarchy-hover" data-bs-toggle="collapse" href="#blotniak">
+                        B.Ł.O.T.N.I.A.K
+                        <div class="collapse" id="blotniak">
+                            <div class="card card-body">
+                                <p>Zbrojne ramię Przystani</p>
+                            </div>
+                        </div>
+                    </h2>
+                </div>
+                <div class="d-flex justify-content-center align-items-center" style="padding-bottom: 3vh;">
+                    <img src="../static/blotniak.png">
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#commander">
+                        ✭ Sierżant ✭
+                        <div class="collapse" id="commander">
+                            <div class="card card-body">
+                                <h5>Dowódca grupy bojowej B.Ł.O.T.N.I.A.K</h5>
+                                <p>Bitwa w mieście czy na pustkowiach? Nie ważne!
+                                    To do niego należy twoja dupa i jego masz się słuchać!</p>
+                                <p>A może dotrwacie do końca Pory Przybyszy.</p>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12">
+                    <h5>Dimitri</h5>
+                    <h5>Sierżant</h5>
+                    <h5>Chmielu</h5>
+                    <h5>Jerzy</h5>
+                    <h5>Guma</h5>
+                    <h5>Ignis</h5>
+                    <h5>Pijo</h5>
+                    <h5>Chmura</h5>
+                    <h5>Struna</h5>
+                </div>
+            </div>
+            <div class="col-4 hierarchy-card">
+                <div class="col-12 d-flex justify-content-center align-items-center"
+                     style="height: 5vh; padding: 5vh 0 5vh 0;">
+                    <h2>Pion Cywilny</h2>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#cywil">
+                        ✭ Wasyl ✭
+                        <div class="collapse" id="cywil">
+                            <div class="card card-body">
+                                <h5>Zarządzca pionu cywilnego</h5>
+                                <p>Jego głównym zadaniem jest sprawić by wszystkiego było pod dostatkiem i miało swoje
+                                    miejsce w magazynie
+                                    (łącznik handlarzy i magazynierów ze strony sztabu). </p>
+                                <p>Dba również o przydział obowiązków i żeby każdy wiedział co ma robić.</p>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center" style="height: 5vh;">
+                    <h2> - Szpejo-małpy - </h2>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#kwatermaster">
+                        ✭ Dimitri ✭
+                        <div class="collapse" id="kwatermaster">
+                            <div class="card card-body">
+                                <h5>Kwatermistrz</h5>
+                                <p>Dba o sprzęt, porządek na magazynie oraz prawidłowe funkcjonowanie magazynu.</p>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#warehouseman1">
+                        Chmielu
+                        <div class="collapse" id="warehouseman1">
+                            <div class="card card-body">
+                                <h5>Magazynier</h5>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#warehouseman2">
+                        Favaro
+                        <div class="collapse" id="warehouseman2">
+                            <div class="card card-body">
+                                <h5>Magazynier</h5>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center" style="height: 5vh;">
+                    <h2> - Rzemieślnicy - </h2>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#mastercrafter">
+                        ✭ Mur ✭
+                        <div class="collapse" id="mastercrafter">
+                            <div class="card card-body">
+                                <h5>Head Crafter</h5>
+                                <p>Przewodzi wszystkim rzemieślnikom.<br>Naprawa pancerzy lv.2</p>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#crafter1">
+                        Pijo
+                        <div class="collapse" id="crafter1">
+                            <div class="card card-body">
+                                <p>Mechanik lv.1</p>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center" style="height: 5vh;">
+                    <h2> - Cinkciarze - </h2>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#mastercinkciarz">
+                        Oczko
+                        <div class="collapse" id="mastercinkciarz">
+                            <div class="card card-body">
+                                <h5>Head Cinkciarz</h5>
+                                <p>Szef Cinkciarzy i główny handlarz</p>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#mastercinkciarz2">
+                        Lucky
+                        <div class="collapse" id="mastercinkciarz2">
+                            <div class="card card-body">
+                                <h5>Zastępca Szefa Cinkciarzy</h5>
+                                <p>Główny handlarz</p>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#cinkciarz1">
+                        Guma
+                        <div class="collapse" id="cinkciarz1">
+                            <div class="card card-body">
+                                <p>Handlarz i sklepikarz</p>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#cinkciarz2">
+                        Pijo
+                        <div class="collapse" id="cinkciarz2">
+                            <div class="card card-body">
+                                <p>Handlarz i sklepikarz</p>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <h4 class="hierarchy-hover" data-bs-toggle="collapse" href="#cinkciarz3">
+                        Pastor
+                        <div class="collapse" id="cinkciarz3">
+                            <div class="card card-body">
+                                <p>Pomniejszy handlarz</p>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block menu_panel %}
+{% endblock %}
+
+{% block content %}
+<div class="col-md-7" style="height: 75vh;"></div>
+{% endblock %}
+
+{% block character_panel %}
+<div class="col-md-3 main-menu-character-display">
+    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 10vh;">
+        Witaj: {{ character.name }}
+    </div>
+    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 45vh;">
+        <img src="../../static/talos_g.gif" class="img-fluid">
+    </div>
+    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
+        <div class="list-group list-group-flush ">
+            <a href="/edytor-postaci/" class="list-group-item"> [ Edytor postaci ]</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

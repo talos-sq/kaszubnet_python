@@ -77,6 +77,31 @@ iframe{
 }
 
 
+
+
+
+
+.scroller {
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+.card {
+    background-color: #191006;
+}
+
+.hierarchy-hover:hover{
+    background-color: #f4a22a20;
+}
+.hierarchy-hover:active{
+    background-color: #f4a22a20;
+}
+
+
+
 .screen{
     background:radial-gradient(#5c3813, #191006);
     height: 100vh;
@@ -124,9 +149,9 @@ iframe{
     height: 75vh;
 }
 
-.members-list-card{
-    border-left-style: solid;
+.hierarchy-card{
+    border-style: solid;
     border-color: #f4a22a;
     border-width: 1px;
-    height: 30vh;
+    padding: 2vh;
 }

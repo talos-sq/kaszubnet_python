@@ -28,4 +28,7 @@ urlpatterns = [
     path('members/', FactionMembersView.as_view(), name="members"),
     path('hierarchy/', FactionHierarchyView.as_view(), name="hierarchy"),
     path('faction_law/', FactionLawView.as_view(), name="faction-law"),
+    path('chronicle_menu/', ChronicleMenuView.as_view(), name="chronicle-menu"),
+    path('chronicle_chronology/', ChronicleChronologyView.as_view(), name="chronicle-chronology"),
+    path('expansion_map/', ExpansionMapView.as_view(), name="expansion-map"),
 ]

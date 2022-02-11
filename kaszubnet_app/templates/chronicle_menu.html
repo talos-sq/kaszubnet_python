@@ -1,0 +1,41 @@
+{% extends "base_menu.html" %}
+
+{% block menu_panel %}
+<div class="col-md-2 main-menu-menu">
+    <div class="row" style="height: 75vh;">
+        <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
+            <h3>Kronika</h3>
+        </div>
+        <div class="col-12" style="height: 55vh;">
+            <div class="list-group list-group-flush ">
+                <a class="list-group-item" href="/chronicle_chronology/">Chronologia Frakcji</a>
+                <div class="col-12 d-flex justify-content-center align-items-center" style="padding-top: 2vh">
+                    <h5>Placówki:</h5>
+                </div>
+                <a class="list-group-item" data-bs-toggle="collapse" href="#orp-kaszub" role="button"
+                   aria-expanded="false" aria-controls="collapseExample">ORP Kaszub</a>
+                <div class="collapse" id="orp-kaszub">
+                    <div class="card card-body">
+                        <a class="list-group-item" href="/chronicle_chronology/">Ekspedycja na Kaszuba ~ Pielgrzym</a>
+                        <a class="list-group-item" href="/chronicle_chronology/">Dziennik pokładowy Kaszuba ~
+                            Pielgrzym</a>
+                        <a class="list-group-item" href="/chronicle_chronology/">Notatnik Wasyla</a>
+                    </div>
+                </div>
+                <a class="list-group-item" data-bs-toggle="collapse" href="#oldtown" role="button"
+                   aria-expanded="false" aria-controls="collapseExample">OldTown</a>
+                <div class="collapse" id="oldtown">
+                    <div class="card card-body">
+                        <a class="list-group-item" href="/chronicle_chronology/">OT 2116</a>
+                        <a class="list-group-item" href="/chronicle_chronology/">OT 2117</a>
+                        <a class="list-group-item" href="/chronicle_chronology/">OT 2118</a>
+                        <a class="list-group-item" href="/chronicle_chronology/">OT 2119</a>
+                    </div>
+                </div>
+                <a class="list-group-item" href="/faction_law/">Północ</a>
+                <a class="list-group-item">Tricity</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

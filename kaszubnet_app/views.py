@@ -90,3 +90,18 @@ class FactionHierarchyView(LoginRequiredMixin, View):
 class FactionLawView(LoginRequiredMixin, View):
     def get(self, request, **kwargs):
         return render(request, "faction_law.html")
+
+
+class ChronicleMenuView(LoginRequiredMixin, View):
+    def get(self, request, **kwargs):
+        return render(request, "chronicle_menu.html")
+
+
+class ChronicleChronologyView(LoginRequiredMixin, View):
+    def get(self, request, **kwargs):
+        return render(request, "chronicle_chronology.html")
+
+
+class ExpansionMapView(LoginRequiredMixin, View):
+    def get(self, request, **kwargs):
+        return render(request, "expansion_map.html")
