@@ -128,6 +128,8 @@ INTERNAL_IPS = [
 
 LOGIN_URL = '/index'
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 if DEBUG:
     import mimetypes
 

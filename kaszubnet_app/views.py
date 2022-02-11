@@ -1,9 +1,10 @@
 from django.views import View
-from django.views.generic.list import ListView
+from django.views.generic import CreateView, ListView, UpdateView, TemplateView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 
 from kaszubnet_app.forms import LoginForm
 from kaszubnet_app.models import *
@@ -54,5 +55,38 @@ class MainMenuView(LoginRequiredMixin, View):
         current_url = request.path
 
         character_name = self.kwargs["name"]
+        request.session['active_character'] = character_name
         character = Character.objects.get(name=character_name)
         return render(request, "main_menu.html", {"current_url": current_url, "character": character})
+
+
+class FactionMenuView(LoginRequiredMixin, View):
+    def get(self, request, **kwargs):
+        current_url = request.path
+
+        character_name = request.session['active_character']
+        character = Character.objects.get(name=character_name)
+        return render(request, "faction_menu.html", {"current_url": current_url, "character": character})
+
+
+class FactionMembersView(LoginRequiredMixin, TemplateView):
+    template_name = "faction_members.html"
+    context_object_name = "members"
+
+    def get_context_data(self, **kwargs):
+        context = super(FactionMembersView, self).get_context_data(**kwargs)
+        context['alive_members'] = Character.objects.filter(Q(dead=False) & ~Q(rank=3) & Q(left_faction=False))
+        context['recruits'] = Character.objects.filter(rank=3)
+        context['dead_members'] = Character.objects.filter(Q(dead=True) & Q(left_faction=False))
+        context['left_members'] = Character.objects.filter(left_faction=True)
+        return context
+
+
+class FactionHierarchyView(LoginRequiredMixin, View):
+    def get(self, request, **kwargs):
+        return render(request, "faction_hierarchy.html")
+
+
+class FactionLawView(LoginRequiredMixin, View):
+    def get(self, request, **kwargs):
+        return render(request, "faction_law.html")

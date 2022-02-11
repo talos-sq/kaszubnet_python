@@ -31,8 +31,39 @@
             <div class="col-md-1">
             </div>
             <div class="col-md-10 main-panel">
-                {% block upper_row %}{% endblock %}
-                {% block content %}{% endblock %}
+                <div class="row d-flex align-items-center main-panel-upper-row">
+                    <div class="col-md-10">
+                        <p>//: {{ current_url }}</p>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="d-flex justify-content-center align-items-center">
+                            {% now "d/m/Y" %}
+                        </div>
+                    </div>
+                    <div class="col-md-1" style="padding: 0px;">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <div class="dropdown">
+                                <a class="btn btn-outline-warning dropdown-toggle" href="#" role="button"
+                                   id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-gear-fill"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" href="/user_menu">
+                                        <i class="bi bi-arrow-left-right"></i> Zmień postać</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="bi bi-power"></i>
+                                        Wyloguj</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% block menu_panel %}{% endblock %}
+                    {% block content %}{% endblock %}
+                    {% block character_panel %}{% endblock %}
+                </div>
             </div>
             <div class="col-md-1">
             </div>
@@ -41,7 +72,7 @@
             <div class="col">
             </div>
             <div class="col-md-6 d-flex justify-content-center align-items-center">
-                <footer>KASZUBnet.V2 wersja 0.1</footer>
+                <footer>KASZUBnet.V2 wersja 0.3</footer>
             </div>
             <div class="col">
             </div>

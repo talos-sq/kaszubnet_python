@@ -6,6 +6,7 @@ RANKS = [
     (0, 'Kapitan'),
     (1, 'Sztabowy'),
     (2, 'Przystaniowiec'),
+    (3, 'Rekrut'),
 ]
 
 FUNCTION = [
@@ -74,6 +75,8 @@ class Character(models.Model):
     religion = models.CharField(blank=True, max_length=64, verbose_name="Wiara")
     character_history = models.TextField(blank=True, )
     old_town_presence = models.ManyToManyField(OTs, blank=True, verbose_name="Pory Przybyszów")
+    dead = models.BooleanField(verbose_name="Czy postać zmarła?")
+    left_faction = models.BooleanField(verbose_name="Czy postać opuściła frakcje?")
 
     def __str__(self):
         return self.name

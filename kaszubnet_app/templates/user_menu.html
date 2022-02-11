@@ -1,63 +1,51 @@
 {% extends "base.html" %}
 
-{% block upper_row %}
-<div class="row d-flex align-items-center main-panel-upper-row">
-    <div class="col-md-9">
-        <p>//: {{ current_url }}</p>
-    </div>
-    <div class="col-md-3">
-        <div class="d-flex justify-content-between align-items-center">
-            {% now "d/m/Y" %}
-            <button class="btn btn-outline-warning"><i class="bi bi-gear-fill"></i></button>
-            <a href="{% url 'logout' %}" class="btn btn-outline-warning"><i class="bi bi-power"></i></i></a>
+{% block content %}
+<div class="col">
+    <div class="row" style="height: 15vh;">
+        <div class="col">
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <h2 class="text-center">Wybierz swoją postać</h2>
+        </div>
+        <div class="col">
         </div>
     </div>
-</div>
-{% endblock %}
-
-{% block content %}
-<div class="row" style="height: 15vh;">
-    <div class="col">
-    </div>
-    <div class="col-md-6 d-flex justify-content-center align-items-center">
-        <h2 class="text-center">Wybierz swoją postać</h2>
-    </div>
-    <div class="col">
-    </div>
-</div>
-<div class="row choose-character-row">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th scope="col">Imię</th>
-            <th scope="col">Ranga</th>
-            <th scope="col">Funkcja</th>
-            <th scope="col">Umiejętności</th>
-            <th scope="col">Placówka</th>
-            <th scope="col">#</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="row choose-character-row">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Imię</th>
+                <th scope="col">Ranga</th>
+                <th scope="col">Funkcja</th>
+                <th scope="col">Umiejętności</th>
+                <th scope="col">Placówka</th>
+                <th scope="col">#</th>
+            </tr>
+            </thead>
+            <tbody>
             {% for character in object_list %}
-                <tr>
-                    <td>{{ character.name }}</td>
-                    <td>{{ character.get_rank_display }}</td>
-                    <td>{{ character.get_function_display }}</td>
-                    <td>{% for ability in character.abilities.all %}
-                            {{ ability.name }}
-                        {% empty %}
-                            brak
-                        {% endfor %}
-                    </td>
-                    <td>{{ character.get_outpost_display }}</td>
-                    <td><a href="/main_menu/{{ character.name }}" class="btn btn-outline-warning" role="button"><i
-                            class="bi bi-caret-right-square"></i></td>
+            <tr>
+                <td>{{ character.name }}</td>
+                <td>{{ character.get_rank_display }}</td>
+                <td>{{ character.get_function_display }}</td>
+                <td>{% for ability in character.abilities.all %}
+                    {{ ability.name }}
+                    {% empty %}
+                    brak
+                    {% endfor %}
+                </td>
+                <td>{{ character.get_outpost_display }}</td>
+                <td><a href="/main_menu/{{ character.name }}" class="btn btn-outline-warning" role="button"><i
+                        class="bi bi-caret-right-square"></i></td>
 
-                </tr>
+            </tr>
             {% empty %}
-                <td>Brak postaci</td>
+            <td>Brak postaci</td>
             {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
+
 {% endblock %}

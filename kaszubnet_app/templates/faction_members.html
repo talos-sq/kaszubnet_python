@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block menu_panel %}
+<div class="col-md-2 main-menu-menu">
+    <div class="row" style="height: 75vh;">
+        <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
+            <h3>Menu</h3>
+        </div>
+        <div class="col-12" style="height: 55vh;">
+            <div id="list-spy" class="list-group list-group-flush">
+                <a class="list-group-item" href="#przystaniowcy">Przystaniowcy</a>
+                <a class="list-group-item" href="#rekruci">Rekruci</a>
+                <a class="list-group-item" href="#ostatnia-zatoka">Ostatnia zatoka</a>
+                <a class="list-group-item" href="#byli-przystaniowcy">Byli Przystaniowcy</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="col-10" style="height: 75vh; padding:0;">
+    <div class="overflow-auto" data-bs-spy="scroll" data-bs-target="#list-spy" data-bs-offset="400" tabindex="0"
+         style="height:75vh;">
+            <div class="row" id="przystaniowcy">
+                <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
+                    <h2>Przystaniowcy</h2>
+                </div>
+            </div>
+            <div class="row" style="padding: 2vh;">
+                {% for member in alive_members %}
+                <!-- Character card -->
+                <div class="col-3 col-md-3 col-sm-3" style="padding: 3vh;">
+                    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 10vh;">
+                        {{ member.name }}
+                    </div>
+                    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 30vh;">
+                        <img src="../../static/talos_g.gif" class="img-fluid" style="height: 100%;">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row" id="rekruci">
+                <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
+                    <h2>Rekruci</h2>
+                </div>
+            </div>
+            <div class="row">
+                {% for member in recruits %}
+                <!-- Character card -->
+                <div class="col-3 col-md-3 col-sm-3" style="padding: 3vh;">
+                    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 10vh;">
+                        {{ member.name }}
+                    </div>
+                    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 30vh;">
+                        <img src="../../static/talos_g.gif" class="img-fluid" style="height: 100%;">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row" id="ostatnia-zatoka">
+                <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
+                    <h2>Ostatnia Zatoka</h2>
+                </div>
+            </div>
+            <div class="row">
+                {% for member in dead_members %}
+                <!-- Character card -->
+                <div class="col-3 col-md-3 col-sm-3" style="padding: 3vh;">
+                    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 10vh;">
+                        {{ member.name }}
+                    </div>
+                    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 30vh;">
+                        <img src="../../static/talos_g.gif" class="img-fluid" style="height: 100%;">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row" id="byli-przystaniowcy">
+                <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
+                    <h2>Byli Przystaniowcy</h2>
+                </div>
+            </div>
+            <div class="row">
+                {% for member in left_members %}
+                <!-- Character card -->
+                <div class="col-3 col-md-3 col-sm-3" style="padding: 3vh;">
+                    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 10vh;">
+                        {{ member.name }}
+                    </div>
+                    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 30vh;">
+                        <img src="../../static/talos_g.gif" class="img-fluid" style="height: 100%;">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block character_panel %}
+{% endblock %}
