@@ -30,5 +30,7 @@ urlpatterns = [
     path('faction_law/', FactionLawView.as_view(), name="faction-law"),
     path('chronicle_menu/', ChronicleMenuView.as_view(), name="chronicle-menu"),
     path('chronicle_chronology/', ChronicleChronologyView.as_view(), name="chronicle-chronology"),
+    path('artefacts_menu/', ArtefactsMenuView.as_view(), name="artefacts-menu"),
+    path('artefact/<str:name>/', ArtefactView.as_view(), name="artefact"),
     path('expansion_map/', ExpansionMapView.as_view(), name="expansion-map"),
 ]

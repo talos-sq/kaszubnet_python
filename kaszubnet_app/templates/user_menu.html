@@ -24,7 +24,7 @@
             </tr>
             </thead>
             <tbody>
-            {% for character in object_list %}
+            {% for character in characters %}
             <tr>
                 <td>{{ character.name }}</td>
                 <td>{{ character.get_rank_display }}</td>
@@ -37,7 +37,7 @@
                 </td>
                 <td>{{ character.get_outpost_display }}</td>
                 <td><a href="/main_menu/{{ character.name }}" class="btn btn-outline-warning" role="button"><i
-                        class="bi bi-caret-right-square"></i></td>
+                        class="bi bi-caret-right-square"></i></a></td>
 
             </tr>
             {% empty %}

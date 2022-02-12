@@ -1,0 +1,14 @@
+{% extends "artefacts_menu.html" %}
+
+{% block content%}
+<div class="col-md-7" style="height: 75vh;">
+        <div class="row">
+        <div class="col-12 d-flex justify-content-center align-items-center" style="height: 15vh;">
+            <h2>{{ artefact_item.name }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        {{ artefact_item.description }}
+    </div>
+</div>
+{% endblock %}

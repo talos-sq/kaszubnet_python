@@ -38,15 +38,13 @@ class UserMenuView(LoginRequiredMixin, ListView):
     model = Character
 
     template_name = "user_menu.html"
-    context_object_name = "character"
+    context_object_name = "characters"
 
     def get_queryset(self):
         return Character.objects.filter(owner=self.request.user.id)
 
     def get_context_data(self, **kwargs):
-        # cmr_id = self.kwargs["id"]
         context = super().get_context_data(**kwargs)
-        # context["cmr"] = get_object_or_404(Character, id=cmr_id)
         return context
 
 
@@ -71,7 +69,6 @@ class FactionMenuView(LoginRequiredMixin, View):
 
 class FactionMembersView(LoginRequiredMixin, TemplateView):
     template_name = "faction_members.html"
-    context_object_name = "members"
 
     def get_context_data(self, **kwargs):
         context = super(FactionMembersView, self).get_context_data(**kwargs)
@@ -100,6 +97,39 @@ class ChronicleMenuView(LoginRequiredMixin, View):
 class ChronicleChronologyView(LoginRequiredMixin, View):
     def get(self, request, **kwargs):
         return render(request, "chronicle_chronology.html")
+
+
+class ArtefactsMenuView(LoginRequiredMixin, ListView):
+    template_name = "artefacts_menu.html"
+    context_object_name = "artefacts"
+
+    def get_queryset(self):
+        return Artefact.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+
+class ArtefactView(LoginRequiredMixin, ListView):
+    template_name = "artefact.html"
+    context_object_name = "artefact_item"
+
+    def get_queryset(self):
+        artefact_name = self.kwargs["name"]
+        return Artefact.objects.get(name=artefact_name)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["artefacts"] = Artefact.objects.all()
+        return context
+    # def get(self, request, **kwargs):
+    #     current_url = request.path
+    #
+    #     artefact_name = self.kwargs["name"]
+    #     artefact = Artefact.objects.get(name=artefact_name)
+    #
+    #     return render(request, "artefact.html", {'artefact': artefact, 'current_url': current_url})
 
 
 class ExpansionMapView(LoginRequiredMixin, View):

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_menu.html" %}
 
 {% block menu_panel %}
 <div class="col-md-2 main-menu-menu">
@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="col-10" style="height: 75vh; padding:0;">
+<div class="col-7" style="height: 75vh; padding:0;">
     <div class="overflow-auto" data-bs-spy="scroll" data-bs-target="#list-spy" data-bs-offset="400" tabindex="0"
          style="height:75vh;">
         <div class="row" id="2116">
@@ -107,7 +107,4 @@
 
     </div>
 </div>
-{% endblock %}
-
-{% block character_panel %}
 {% endblock %}

@@ -33,3 +33,10 @@ class OTsAdmin(admin.ModelAdmin):
 @admin.register(WarehouseLog)
 class OTsAdmin(admin.ModelAdmin):
     model = WarehouseLog
+
+
+@admin.register(Artefact)
+class OTsAdmin(admin.ModelAdmin):
+    model = Artefact
+
+    list_display = ['name']

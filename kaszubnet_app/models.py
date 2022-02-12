@@ -112,3 +112,12 @@ class WarehouseLog(models.Model):
     class Meta:
         verbose_name = "Ewidencja magazynowa"
         verbose_name_plural = "Ewidencja magazynowa"
+
+
+class Artefact(models.Model):
+    name = models.CharField(max_length=64, verbose_name="Nazwa artefaktu")
+    description = models.TextField(verbose_name="Opis artefaktu")
+
+    class Meta:
+        verbose_name = "Artefakt"
+        verbose_name_plural = "Artefakty"

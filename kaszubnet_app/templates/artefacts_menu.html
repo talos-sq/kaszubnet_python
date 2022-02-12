@@ -1,0 +1,18 @@
+{% extends "base_menu.html" %}
+
+{% block menu_panel %}
+<div class="col-md-2 main-menu-menu">
+    <div class="row" style="height: 75vh;">
+        <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
+            <h3>Artefakty</h3>
+        </div>
+        <div class="col-12" style="height: 55vh;">
+            <div class="list-group list-group-flush ">
+                {% for artefact in artefacts %}
+                <a href="/artefact/{{ artefact.name }}" class="list-group-item">{{ artefact.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
