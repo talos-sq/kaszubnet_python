@@ -1,0 +1,53 @@
+{% extends "warehouse_menu.html" %}
+
+{% block content %}
+<div class="col-md-10" style="height: 75vh;">
+
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center align-items-center" style="height: 15vh;">
+            <h2>Dodawanie nowego rekordu do bazy danych:</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+            <div class="col-md-12 d-flex align-items-center justify-content-start" style="height: 40vh;">
+                <div class="container mt-3 text-center">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3 mt-3">
+                            <label for="item_name_input" class="form-label">Nazwa przedmiotu</label>
+                            {{ form.item_name }}
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="item_type_input" class="form-label">Typ przedmiotu</label>
+                                    {{ form.item_type }}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3 mt-3">
+                                    <label for="item_amount_input" class="form-label">Ilość</label>
+                                    {{ form.item_amount }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="item_des_input" class="form-label">Opis przedmiotu</label>
+                            {{ form.item_description }}
+                        </div>
+                        <input type="submit" value="Dodaj">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+{% endblock %}
+
+{% block character_panel %}
+{% endblock %}

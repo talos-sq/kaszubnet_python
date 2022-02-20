@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
+from django.urls import reverse
 
 RANKS = [
     (0, 'Kapitan'),
@@ -23,12 +24,11 @@ OUTPOSTS = [
 ]
 
 ITEM_TYPE = [
-    (0, 'Nienznany'),
-    (1, 'Kapsel'),
-    (2, 'Użytkowy'),
-    (3, 'Materiał do produkcji'),
-    (4, 'Medyczny'),
-    (5, 'Elektronika'),
+    (0, 'Nieznany'),
+    (1, 'Użytkowy'),
+    (2, 'Materiał do produkcji'),
+    (3, 'Medyczny'),
+    (4, 'Elektronika'),
 ]
 
 ACTION_TYPE = [
@@ -90,9 +90,13 @@ class WarehouseItems(models.Model):
     item_name = models.CharField(max_length=64, verbose_name="Nazwa przedmiotu")
     item_type = models.IntegerField(choices=ITEM_TYPE, verbose_name="Typ przedmiotu")
     item_amount = models.IntegerField(null=True, blank=True, verbose_name="Ilosć")
+    item_description = models.TextField(null=True, blank=True, verbose_name="Opis przedmiotu")
 
     def __str__(self):
         return self.item_name
+
+    def get_absolute_url(self):
+        return reverse('warehouse-status')
 
     class Meta:
         verbose_name = "Przedmiot zmagazynowany"

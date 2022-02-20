@@ -1,0 +1,137 @@
+{% extends "warehouse_menu.html" %}
+
+{% block content%}
+<div class="col-2 col-3-sm warehouse-status-column" style="height: 75vh;">
+    <div class="col-12 text-center" style="padding: 2vh;">
+        <h3>Użytkowe</h3>
+    </div>
+    <div class="col-12 text-center warehouse-status-column" style="padding: 2vh;">
+        <table class="table">
+            <thead>
+            <th>Nazwa</th>
+            <th>Ilość</th>
+            </thead>
+            <tbody>
+            {% for usable_item in usable %}
+
+            <tr class="hierarchy-hover" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="{{ usable_item.item_description }}">
+                <td>{{ usable_item.item_name }}</td>
+                <td>{{ usable_item.item_amount }}</td>
+
+            </tr>
+            {% empty %}
+            <tr>
+                <td>Brak</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="col-2 warehouse-status-column" style="height: 75vh;">
+    <div class="col-12 text-center" style="padding: 2vh;">
+        <h3>Meteriały</h3>
+    </div>
+    <div class="col-12 text-center warehouse-status-column" style="padding: 2vh;">
+        <table class="table">
+            <thead>
+            <th>Nazwa</th>
+            <th>Ilość</th>
+            </thead>
+            <tbody>
+            {% for material_item in material %}
+            <tr>
+                <td>{{ material_item.item_name }}</td>
+                <td>{{ material_item.item_amount }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>Brak</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="col-2 warehouse-status-column" style="height: 75vh;">
+    <div class="col-12 text-center" style="padding: 2vh;">
+        <h3>Medyczne</h3>
+    </div>
+    <div class="col-12 text-center warehouse-status-column" style="padding: 2vh;">
+        <table class="table">
+            <thead>
+            <th>Nazwa</th>
+            <th>Ilość</th>
+            </thead>
+            <tbody>
+            {% for medical_item in medical %}
+            <tr>
+                <td>{{ medical_item.item_name }}</td>
+                <td>{{ medical_item.item_amount }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>Brak</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="col-2 warehouse-status-column" style="height: 75vh;">
+    <div class="col-12 text-center" style="padding: 2vh;">
+        <h3>Elektroszpej</h3>
+    </div>
+    <div class="col-12 text-center warehouse-status-column" style="padding: 2vh;">
+        <table class="table">
+            <thead>
+            <th>Nazwa</th>
+            <th>Ilość</th>
+            </thead>
+            <tbody>
+            {% for electronic_item in electronics %}
+            <tr>
+                <td>{{ electronic_item.item_name }}</td>
+                <td>{{ electronic_item.item_amount }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>Brak</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="col-2 warehouse-status-column" style="height: 75vh;">
+    <div class="col-12 text-center" style="padding: 2vh;">
+        <h3>Inne/Nieznane</h3>
+    </div>
+    <div class="col-12 text-center warehouse-status-column" style="padding: 2vh;">
+        <table class="table">
+            <thead>
+            <th>Nazwa</th>
+            <th>Ilość</th>
+            </thead>
+            <tbody>
+            {% for undefined_item in undefined %}
+            <tr>
+                <td>{{ undefined_item.item_name }}</td>
+                <td>{{ undefined_item.item_amount }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>Brak</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block character_panel %}
+{% endblock %}

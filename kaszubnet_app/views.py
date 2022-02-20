@@ -1,12 +1,12 @@
 from django.views import View
-from django.views.generic import CreateView, ListView, UpdateView, TemplateView
+from django.views.generic import ListView, TemplateView, FormView, CreateView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 
-from kaszubnet_app.forms import LoginForm
+from kaszubnet_app.forms import LoginForm, WarehouseActionForm
 from kaszubnet_app.models import *
 
 
@@ -123,13 +123,39 @@ class ArtefactView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context["artefacts"] = Artefact.objects.all()
         return context
-    # def get(self, request, **kwargs):
-    #     current_url = request.path
-    #
-    #     artefact_name = self.kwargs["name"]
-    #     artefact = Artefact.objects.get(name=artefact_name)
-    #
-    #     return render(request, "artefact.html", {'artefact': artefact, 'current_url': current_url})
+
+
+class WarehouseMenuView(LoginRequiredMixin, View):
+    def get(self, request, **kwargs):
+        return render(request, "warehouse_menu.html")
+
+
+class WarehouseStatusView(LoginRequiredMixin, TemplateView):
+    template_name = "warehouse_status.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(WarehouseStatusView, self).get_context_data(**kwargs)
+        context['undefined'] = WarehouseItems.objects.filter(item_type=0)
+        context['usable'] = WarehouseItems.objects.filter(item_type=1)
+        context['material'] = WarehouseItems.objects.filter(item_type=2)
+        context['medical'] = WarehouseItems.objects.filter(item_type=3)
+        context['electronics'] = WarehouseItems.objects.filter(item_type=4)
+
+        return context
+
+
+class WarehouseActionAddView(LoginRequiredMixin, CreateView):
+    form_class = WarehouseActionForm
+    template_name = "warehouse_action_add.html"
+
+    def post(self, request, *args, **kwargs):
+        form = WarehouseActionForm(request.POST)
+
+        if form.is_valid():
+            validated_form = WarehouseItems.objects.create(**form.cleaned_data)
+            return redirect("../warehouse_status/")
+        else:
+            return redirect("warehouse_action_add/")
 
 
 class ExpansionMapView(LoginRequiredMixin, View):

@@ -29,6 +29,8 @@ class OTsAdmin(admin.ModelAdmin):
 class OTsAdmin(admin.ModelAdmin):
     model = WarehouseItems
 
+    list_display = ('item_name', 'item_type', 'item_amount')
+
 
 @admin.register(WarehouseLog)
 class OTsAdmin(admin.ModelAdmin):

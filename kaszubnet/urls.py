@@ -32,5 +32,8 @@ urlpatterns = [
     path('chronicle_chronology/', ChronicleChronologyView.as_view(), name="chronicle-chronology"),
     path('artefacts_menu/', ArtefactsMenuView.as_view(), name="artefacts-menu"),
     path('artefact/<str:name>/', ArtefactView.as_view(), name="artefact"),
+    path('warehouse_menu/', WarehouseMenuView.as_view(), name="warehouse-menu"),
+    path('warehouse_status/', WarehouseStatusView.as_view(), name="warehouse-status"),
+    path('warehouse_action_add/', WarehouseActionAddView.as_view(), name="warehouse-action-add"),
     path('expansion_map/', ExpansionMapView.as_view(), name="expansion-map"),
 ]

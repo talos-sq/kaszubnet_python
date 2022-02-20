@@ -76,6 +76,17 @@ iframe{
   background: #f4a22a;
 }
 
+.tooltip{
+    opacity 1:
+}
+
+.tooltip-inner {
+    color: #f4a22a;
+    background-color: #191006;
+    box-shadow: 0px 0px 0px black;
+    opacity: 1 !important;
+}
+
 
 
 
@@ -154,4 +165,10 @@ iframe{
     border-color: #f4a22a;
     border-width: 1px;
     padding: 2vh;
+}
+
+.warehouse-status-column{
+    border-style: solid;
+    border-color: #f4a22a;
+    border-width: 1px;
 }

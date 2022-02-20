@@ -1,0 +1,22 @@
+{% extends "base_menu.html" %}
+
+{% block menu_panel %}
+<div class="col-md-2 main-menu-menu">
+    <div class="row" style="height: 75vh;">
+        <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
+            <h3>Magazyn</h3>
+        </div>
+        <div class="col-12" style="height: 55vh;">
+            <div class="list-group list-group-flush ">
+                <a href="/warehouse_status/" class="list-group-item">Stan magazynu</a>
+                <a href="/warehouse_status/" class="list-group-item">Ewidencja</a>
+                <div class="col-12 d-flex justify-content-center align-items-center" style="padding-top: 2vh">
+                    <h5>Akcje:</h5>
+                </div>
+                <a href="/warehouse_action_add/" class="list-group-item"> + Nowy przedmiot + </a>
+                <a href="/warehouse_action_update/" class="list-group-item"> + Przyjęcie / Wydanie - </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
