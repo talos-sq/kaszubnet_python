@@ -1,12 +1,12 @@
 from django.views import View
-from django.views.generic import ListView, TemplateView, FormView, CreateView
+from django.views.generic import ListView, TemplateView, FormView, CreateView, UpdateView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 
-from kaszubnet_app.forms import LoginForm, WarehouseActionForm
+from kaszubnet_app.forms import *
 from kaszubnet_app.models import *
 
 
@@ -145,17 +145,27 @@ class WarehouseStatusView(LoginRequiredMixin, TemplateView):
 
 
 class WarehouseActionAddView(LoginRequiredMixin, CreateView):
-    form_class = WarehouseActionForm
     template_name = "warehouse_action_add.html"
+    form_class = WarehouseActionAddForm
 
     def post(self, request, *args, **kwargs):
-        form = WarehouseActionForm(request.POST)
+        form = WarehouseActionAddForm(request.POST)
 
         if form.is_valid():
             validated_form = WarehouseItems.objects.create(**form.cleaned_data)
             return redirect("../warehouse_status/")
         else:
             return redirect("warehouse_action_add/")
+
+
+class WarehouseActionUpdateView(LoginRequiredMixin, FormView):
+    template_name = "warehouse_action_update.html"
+    form_class = WarehouseActionUpdateForm
+
+    def get_context_data(self, update_form=None, **kwargs):
+        context = super(WarehouseActionUpdateView, self).get_context_data(**kwargs)
+        context['update_form'] = update_form if update_form is not None else WarehouseActionUpdateForm()
+        return context
 
 
 class ExpansionMapView(LoginRequiredMixin, View):

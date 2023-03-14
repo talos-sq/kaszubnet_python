@@ -35,5 +35,6 @@ urlpatterns = [
     path('warehouse_menu/', WarehouseMenuView.as_view(), name="warehouse-menu"),
     path('warehouse_status/', WarehouseStatusView.as_view(), name="warehouse-status"),
     path('warehouse_action_add/', WarehouseActionAddView.as_view(), name="warehouse-action-add"),
+    path('warehouse_action_update/', WarehouseActionUpdateView.as_view(), name="warehouse-action-update"),
     path('expansion_map/', ExpansionMapView.as_view(), name="expansion-map"),
 ]
