@@ -130,6 +130,8 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 CSRF_COOKIE_SECURE = False
 
+CSRF_TRUSTED_ORIGINS =["https://*", "http://*"]
+
 if DEBUG:
     import mimetypes
 
