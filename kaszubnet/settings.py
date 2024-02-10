@@ -128,6 +128,8 @@ LOGIN_URL = '/index'
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+CSRF_COOKIE_SECURE = False
+
 if DEBUG:
     import mimetypes
 
