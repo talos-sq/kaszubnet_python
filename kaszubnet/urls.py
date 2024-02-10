@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 import settings
 from kaszubnet_app.views import *
 
@@ -40,4 +40,4 @@ urlpatterns = [
     path('warehouse_action_update/', WarehouseActionUpdateView.as_view(), name="warehouse-action-update"),
     path('expansion_map/', ExpansionMapView.as_view(), name="expansion-map"),
     ]
-# ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += staticfiles_urlpatterns()
