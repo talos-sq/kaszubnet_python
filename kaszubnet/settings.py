@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'kaszubnet.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'kaszubnet_python_db',
-        'USER': 'x',
-        'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
+        'NAME': 'kaszubnet_db',
+        'USER': 'kaszubnet',
+        'PASSWORD': 'BVF38HK8S3O0B441$',
+        'HOST': 'kaszubnet-db.postgres.database.azure.com',
         'PORT': 5432,
     }
 }
