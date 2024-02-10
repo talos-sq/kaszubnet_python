@@ -77,7 +77,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'kaszubnet_python_db',
-        'USER': 'postgres',
+        'USER': 'x',
         'PASSWORD': 'postgres',
         'HOST': '127.0.0.1',
         'PORT': 5432,
