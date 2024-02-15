@@ -1,3 +1,6 @@
+import sys
+from psycopg2 import connect
+
 from django.views import View
 from django.views.generic import ListView, TemplateView, FormView, CreateView, UpdateView
 from django.shortcuts import render, redirect, get_object_or_404
@@ -55,7 +58,45 @@ class MainMenuView(LoginRequiredMixin, View):
         character_name = self.kwargs["name"]
         request.session['active_character'] = character_name
         character = Character.objects.get(name=character_name)
+
+        with open("kaszubnet_app/static/temp_picture.jpg", "wb+") as tp:
+            tp.write(bytes(character.picture))
+
         return render(request, "main_menu.html", {"current_url": current_url, "character": character})
+
+
+class CharacterEditorView(LoginRequiredMixin, FormView):
+    template_name = "character_editor.html"
+    form_class = CharacterForm
+
+    def post(self, request, *args, **kwargs):
+        form = CharacterForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            file = request.FILES['picture']
+            print(file, file=sys.stderr)
+
+            # with open('p.jpg', 'wb+') as ftb:
+            #   ftb.write(chunk)
+
+            for chunk in file.chunks():
+                conn = connect(user="kaszubnet", password="BVF38HK8S3O0B441$",
+                               host="kaszubnet-db.postgres.database.azure.com",
+                               port=5432,
+                               database="kaszubnet_db")
+
+                with conn.cursor() as cur:
+                    sql = "UPDATE kaszubnet_app_character set picture = %s where name = 'Talos';"
+                    data = (chunk,)
+
+                    cur.execute(sql, data)
+                    conn.commit()
+                    cur.close()
+                    conn.close()
+
+            return redirect("/user_menu/")
+        else:
+            return redirect("/faction_menu/")
 
 
 class FactionMenuView(LoginRequiredMixin, View):

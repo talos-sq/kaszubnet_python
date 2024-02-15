@@ -30,9 +30,9 @@ class LoginForm(forms.Form):
 
 
 class WarehouseActionAddForm(forms.ModelForm):
-    item_name = forms.CharField(max_length=64,widget=forms.TextInput(
+    item_name = forms.CharField(max_length=64, widget=forms.TextInput(
         attrs={'class': 'form-control', 'id': 'item_name_input'}))
-    item_type = forms.ChoiceField(choices=ITEM_TYPE,widget=forms.Select(
+    item_type = forms.ChoiceField(choices=ITEM_TYPE, widget=forms.Select(
         attrs={'class': 'form-select', 'id': 'item_type_input'}))
     item_amount = forms.DecimalField(initial=0, widget=forms.NumberInput(
         attrs={'class': 'form-control', 'id': 'item_amount_input'}))
@@ -55,3 +55,8 @@ class WarehouseActionUpdateForm(forms.Form):
         attrs={'class': 'form-control', 'id': 'amount_input'}))
     comment = forms.CharField(widget=forms.Textarea(
         attrs={'class': 'form-control', 'id': 'item_des_input', 'rows': '4'}))
+
+
+class CharacterForm(forms.Form):
+    picture = forms.FileField(widget=forms.FileInput(
+        attrs={'id': 'picture'}))

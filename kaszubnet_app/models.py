@@ -64,7 +64,7 @@ class Ability(models.Model):
 class Character(models.Model):
     name = models.CharField(max_length=64, verbose_name="Nazwa postaci")
     owner = models.ForeignKey(get_user_model(), null=True, on_delete=models.CASCADE, verbose_name="Właściciel")
-    birthdate = models.DateField(null=True, blank=True, )
+    birthdate = models.DateField(null=True, blank=True)
     rank = models.IntegerField(choices=RANKS, default=2, verbose_name="Ranga")
     function = models.IntegerField(choices=FUNCTION, default=0, verbose_name="Funkcja")
     abilities = models.ManyToManyField(Ability, blank=True, verbose_name="Umiejętności")
@@ -73,10 +73,11 @@ class Character(models.Model):
     job = models.CharField(blank=True, max_length=64, verbose_name="Zawód")
     specialization = models.CharField(blank=True, max_length=64, verbose_name="Specjalizacje")
     religion = models.CharField(blank=True, max_length=64, verbose_name="Wiara")
-    character_history = models.TextField(blank=True, )
-    old_town_presence = models.ManyToManyField(OTs, blank=True, verbose_name="Pory Przybyszów")
-    dead = models.BooleanField(verbose_name="Czy postać zmarła?")
-    left_faction = models.BooleanField(verbose_name="Czy postać opuściła frakcje?")
+    character_history = models.TextField(null=True, blank=True)
+    old_town_presence = models.ManyToManyField(OTs, null=True, blank=True, verbose_name="Pory Przybyszów")
+    dead = models.BooleanField(null=True, blank=True, verbose_name="Czy postać zmarła?")
+    left_faction = models.BooleanField(null=True, blank=True, verbose_name="Czy postać opuściła frakcje?")
+    picture = models.BinaryField(null=True, blank=True, verbose_name="Zdjęcie")
 
     def __str__(self):
         return self.name

@@ -25,6 +25,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name="logout"),
     path('user_menu/', UserMenuView.as_view(), name="user-menu"),
     path('main_menu/<str:name>/', MainMenuView.as_view(), name="main-menu"),
+    path('character_editor/', CharacterEditorView.as_view(), name="character-editor"),
     path('faction_menu/', FactionMenuView.as_view(), name="faction-menu"),
     path('members/', FactionMembersView.as_view(), name="members"),
     path('hierarchy/', FactionHierarchyView.as_view(), name="hierarchy"),

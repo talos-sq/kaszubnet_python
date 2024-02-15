@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-10" style="height: 75vh;">
+
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center align-items-center" style="height: 15vh;">
+            <h2>Dodaj zdjęcie</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+            <div class="col-md-12 d-flex align-items-center justify-content-start" style="height: 40vh;">
+                <div class="container mt-3 text-center">
+                    <form enctype="multipart/form-data" method="post" action=".">
+                        {% csrf_token %}
+                        <div class="mb-3 mt-3">
+                            <label for="picture" class="form-label">Zdjęcie</label>
+                            {{ form.picture }}
+                        </div>
+
+                        <input type="submit" value="Dodaj">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+{% endblock %}
+
+{% block character_panel %}
+{% endblock %}
