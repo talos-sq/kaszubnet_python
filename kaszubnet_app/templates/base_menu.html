@@ -4,21 +4,22 @@
 {% endblock %}
 
 {% block content %}
-<div class="col-md-7" style="height: 75vh;"></div>
+    <div class="col-md-7" style="height: 75vh;"></div>
 {% endblock %}
 
 {% block character_panel %}
-<div class="col-md-3 main-menu-character-display">
-    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 10vh;">
-        Witaj: {{ character.name }}
-    </div>
-    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 45vh;">
-        <img src="../../static/temp_picture.jpg" class="img-fluid">
-    </div>
-    <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
-        <div class="list-group list-group-flush ">
-            <a href="/character_editor/" class="list-group-item"> [ Edytor postaci ]</a>
+    <div class="col-md-3 main-menu-character-display">
+        <div class="col-12 d-flex justify-content-center align-items-center" style="height: 10vh;">
+            Witaj: {{ character.name }}
+        </div>
+        <div class="col-12 d-flex justify-content-center align-items-center" style="height: 45vh;">
+            <img src="../../static/temp_picture.jpg" class="img-fluid">
+        </div>
+        <div class="col-12 d-flex justify-content-center align-items-center" style="height: 20vh;">
+            <div class="list-group list-group-flush ">
+                <a href="/character_editor/{{ character.id }}" class="list-group-item"> [ Edytor postaci ]</a>
+                <a href="/character_avatar_editor/" class="list-group-item"> [ Edytor awataru ]</a>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

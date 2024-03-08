@@ -1,36 +1,108 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="col-md-10" style="height: 75vh;">
-
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center align-items-center" style="height: 15vh;">
-            <h2>Dodaj zdjęcie</h2>
+    <div class="col">
+        <div class="row" style="height: 15vh;">
+            <div class="col">
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <h2 class="text-center">Edytor postaci</h2>
+            </div>
+            <div class="col">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10">
+        <div class="row">
             <div class="col-md-12 d-flex align-items-center justify-content-start" style="height: 40vh;">
                 <div class="container mt-3 text-center">
-                    <form enctype="multipart/form-data" method="post" action=".">
-                        {% csrf_token %}
-                        <div class="mb-3 mt-3">
-                            <label for="picture" class="form-label">Zdjęcie</label>
-                            {{ form.picture }}
-                        </div>
-
-                        <input type="submit" value="Dodaj">
+                    <form method="post">{% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Update">
                     </form>
+{#                    <form method="post">#}
+{#                        {% csrf_token %}#}
+{#                        <div class="mb-3 mt-3">#}
+{#                            <label for="name" class="form-label">Imię</label>#}
+{#                            {{ form.name }}#}
+{#                        </div>#}
+{#                        <div class="mb-3 mt-3">#}
+{#                            <label for="owner" class="form-label">Owner</label>#}
+{#                            {{ form.owner }}#}
+{#                        </div>#}
+{#                        <div class="row">#}
+{#                            <div class="col">#}
+{#                                <div class="mb-3 mt-3">#}
+{#                                    <label for="origin_outpost" class="form-label">Miejsce pochodzenia</label>#}
+{#                                    {{ form.origin_outpost }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="col">#}
+{#                                <div class="mb-3 mt-3">#}
+{#                                    <label for="birthdate" class="form-label">Data urodzenia</label>#}
+{#                                    {{ form.birthdate }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="row">#}
+{#                            <div class="col">#}
+{#                                <div class="mb-3 mt-3">#}
+{#                                    <label for="job" class="form-label">Zawód</label>#}
+{#                                    {{ form.job }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="col">#}
+{#                                <div class="mb-3 mt-3">#}
+{#                                    <label for="specialization" class="form-label">Specjalizacja</label>#}
+{#                                    {{ form.specialization }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="col">#}
+{#                                <div class="mb-3 mt-3">#}
+{#                                    <label for="religion" class="form-label">Wyznanie</label>#}
+{#                                    {{ form.religion }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="row">#}
+{#                            <div class="col">#}
+{#                                <div class="mb-3 mt-3">#}
+{#                                    <label for="rank" class="form-label">Ranga</label>#}
+{#                                    {{ form.rank }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="col">#}
+{#                                <div class="mb-3 mt-3">#}
+{#                                    <label for="function" class="form-label">Funkcja</label>#}
+{#                                    {{ form.function }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="col">#}
+{#                                <div class="mb-3 mt-3">#}
+{#                                    <label for="outpost" class="form-label">Placówka</label>#}
+{#                                    {{ form.outpost }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="row">#}
+{#                            <div class="col">#}
+{#                                <div class="mb-3 mt-3">#}
+{#                                    <label for="character_history" class="form-label">Historia postaci</label>#}
+{#                                    {{ form.character_history }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="row">#}
+{#                            <div class="col">#}
+{#                                <div class="mb-3 mt-3">#}
+{#                                    <label for="picture" class="form-label">Zdjęcie</label>#}
+{#                                    {{ form.picture }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <input type="submit" value="Dodaj">#}
+{#                    </form>#}
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-1">
-    </div>
-</div>
-{% endblock %}
 
-{% block character_panel %}
 {% endblock %}

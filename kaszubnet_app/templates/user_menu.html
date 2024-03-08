@@ -1,51 +1,58 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="col">
-    <div class="row" style="height: 15vh;">
-        <div class="col">
+    <div class="col">
+        <div class="row" style="height: 15vh;">
+            <div class="col">
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="row row-cols-1 ">
+                    <div class="p-3">
+                        <h2 class="text-center">Menadżer postaci</h2>
+                    </div>
+                    <div class="p-3 text-center">
+                        <a href="/user_menu/new_character/" class="btn btn-outline-warning" role="button">Nowa postać +</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+            </div>
         </div>
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-            <h2 class="text-center">Wybierz swoją postać</h2>
-        </div>
-        <div class="col">
-        </div>
-    </div>
-    <div class="row choose-character-row">
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th scope="col">Imię</th>
-                <th scope="col">Ranga</th>
-                <th scope="col">Funkcja</th>
-                <th scope="col">Umiejętności</th>
-                <th scope="col">Placówka</th>
-                <th scope="col">#</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for character in characters %}
-            <tr>
-                <td>{{ character.name }}</td>
-                <td>{{ character.get_rank_display }}</td>
-                <td>{{ character.get_function_display }}</td>
-                <td>{% for ability in character.abilities.all %}
-                    {{ ability.name }}
-                    {% empty %}
-                    brak
-                    {% endfor %}
-                </td>
-                <td>{{ character.get_outpost_display }}</td>
-                <td><a href="/main_menu/{{ character.name }}" class="btn btn-outline-warning" role="button"><i
-                        class="bi bi-caret-right-square"></i></a></td>
+        <div class="row choose-character-row">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Imię</th>
+                    <th scope="col">Ranga</th>
+                    <th scope="col">Funkcja</th>
+                    <th scope="col">Umiejętności</th>
+                    <th scope="col">Placówka</th>
+                    <th scope="col">#</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for character in characters %}
+                    <tr>
+                        <td>{{ character.name }}</td>
+                        <td>{{ character.get_rank_display }}</td>
+                        <td>{{ character.get_function_display }}</td>
+                        <td>{% for ability in character.abilities.all %}
+                            {{ ability.name }}
+                        {% empty %}
+                            brak
+                        {% endfor %}
+                        </td>
+                        <td>{{ character.get_outpost_display }}</td>
+                        <td><a href="/main_menu/{{ character.name }}" class="btn btn-outline-warning" role="button"><i
+                                class="bi bi-caret-right-square"></i></a></td>
 
-            </tr>
-            {% empty %}
-            <td>Brak postaci</td>
-            {% endfor %}
-            </tbody>
-        </table>
+                    </tr>
+                {% empty %}
+                    <td>Brak postaci</td>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
 {% endblock %}

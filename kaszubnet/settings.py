@@ -76,12 +76,20 @@ WSGI_APPLICATION = 'kaszubnet.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'kaszubnet_db',
-        'USER': 'kaszubnet',
-        'PASSWORD': 'BVF38HK8S3O0B441$',
-        'HOST': 'kaszubnet-db.postgres.database.azure.com',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'SR8P64277H5S5D5S$',
+        'HOST': 'kaszubnet.postgres.database.azure.com',
         'PORT': 5432,
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'kaszubnet_db',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'postgres',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': 5432,
+    # }
 }
 
 # Password validation
@@ -115,7 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 # STATIC_ROOT = "/home/site/wwwroot/kaszubnet_app/static"
 #
 # STATICFILES_DIRS = [
@@ -128,7 +136,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-INTERNAL_IPS = ["*"]
+INTERNAL_IPS = ["127.0.0.1"]
 
 LOGIN_URL = '/index'
 

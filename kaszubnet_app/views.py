@@ -34,7 +34,7 @@ class LogoutView(View):
     def get(self, request):
         if request.user.is_authenticated:
             logout(request)
-        return redirect("/index")
+        return redirect("/")
 
 
 class UserMenuView(LoginRequiredMixin, ListView):
@@ -59,34 +59,57 @@ class MainMenuView(LoginRequiredMixin, View):
         request.session['active_character'] = character_name
         character = Character.objects.get(name=character_name)
 
-        with open("kaszubnet_app/static/temp_picture.jpg", "wb+") as tp:
-            tp.write(bytes(character.picture))
+        try:
+            with open("kaszubnet_app/static/temp_picture.jpg", "wb+") as tp:
+                tp.write(bytes(character.picture))
+        except TypeError:
+            pass
 
         return render(request, "main_menu.html", {"current_url": current_url, "character": character})
 
 
-class CharacterEditorView(LoginRequiredMixin, FormView):
-    template_name = "character_editor.html"
-    form_class = CharacterForm
+class NewCharacterView(LoginRequiredMixin, CreateView):
+    template_name = "new_character.html"
+    form_class = NewCharacterForm
 
     def post(self, request, *args, **kwargs):
-        form = CharacterForm(request.POST, request.FILES)
+        form = NewCharacterForm(request.POST)
+
+        if form.is_valid():
+            validated_form = Character.objects.create(**form.cleaned_data)
+            return redirect("/user_menu/")
+        else:
+            return redirect("/user_menu/new_character/")
+
+
+class CharacterEditorView(LoginRequiredMixin, UpdateView):
+    template_name = "character_editor.html"
+    model = Character
+    fields = ["name", "birthdate", "rank", "function", "outpost", "origin_outpost", "job", "specialization", "religion",
+              "character_history"]
+
+
+class CharacterAvatarEditorView(LoginRequiredMixin, FormView):
+    template_name = "character_avatar_editor.html"
+    form_class = CharacterAvatarForm
+
+    def post(self, request, *args, **kwargs):
+        form = CharacterAvatarForm(request.POST, request.FILES)
 
         if form.is_valid():
             file = request.FILES['picture']
             print(file, file=sys.stderr)
 
-            # with open('p.jpg', 'wb+') as ftb:
-            #   ftb.write(chunk)
+            character_name = request.session['active_character']
 
             for chunk in file.chunks():
-                conn = connect(user="kaszubnet", password="BVF38HK8S3O0B441$",
+                conn = connect(user="postgres", password="SR8P64277H5S5D5S$",
                                host="kaszubnet-db.postgres.database.azure.com",
                                port=5432,
-                               database="kaszubnet_db")
+                               database="kaszubnet-database")
 
                 with conn.cursor() as cur:
-                    sql = "UPDATE kaszubnet_app_character set picture = %s where name = 'Talos';"
+                    sql = f"UPDATE kaszubnet_app_character set picture = %s where name = '{character_name}';"
                     data = (chunk,)
 
                     cur.execute(sql, data)

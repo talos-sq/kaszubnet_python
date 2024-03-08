@@ -23,7 +23,8 @@
             <div class="col-md-6 d-flex justify-content-center align-items-center">
                 <h2 class="text-center">KASZUBnet.V2</h2>
             </div>
-            <div class="col">
+            <div class="col" style="text-align: right">
+                <a href="/admin">Panel Administracyjny</a>
             </div>
         </div>
         <div class="row">
@@ -37,11 +38,11 @@
                             {% csrf_token %}
                             <div class="mb-3 mt-3">
                                 <label>Login:</label>
-                                {{form.username}}
+                                {{ form.username }}
                             </div>
                             <div class="mb-3">
                                 <label>Hasło:</label>
-                                {{form.password}}
+                                {{ form.password }}
                             </div>
                             <button type="submit" class="btn btn-warning">Zaloguj</button>
                         </form>

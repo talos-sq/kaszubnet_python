@@ -74,7 +74,7 @@ class Character(models.Model):
     specialization = models.CharField(blank=True, max_length=64, verbose_name="Specjalizacje")
     religion = models.CharField(blank=True, max_length=64, verbose_name="Wiara")
     character_history = models.TextField(null=True, blank=True)
-    old_town_presence = models.ManyToManyField(OTs, null=True, blank=True, verbose_name="Pory Przybyszów")
+    old_town_presence = models.ManyToManyField(OTs, blank=True, verbose_name="Pory Przybyszów")
     dead = models.BooleanField(null=True, blank=True, verbose_name="Czy postać zmarła?")
     left_faction = models.BooleanField(null=True, blank=True, verbose_name="Czy postać opuściła frakcje?")
     picture = models.BinaryField(null=True, blank=True, verbose_name="Zdjęcie")
