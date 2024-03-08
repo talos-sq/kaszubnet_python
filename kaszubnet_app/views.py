@@ -87,6 +87,7 @@ class CharacterEditorView(LoginRequiredMixin, UpdateView):
     model = Character
     fields = ["name", "birthdate", "rank", "function", "outpost", "origin_outpost", "job", "specialization", "religion",
               "character_history"]
+    success_url = "/"
 
 
 class CharacterAvatarEditorView(LoginRequiredMixin, FormView):
@@ -104,9 +105,9 @@ class CharacterAvatarEditorView(LoginRequiredMixin, FormView):
 
             for chunk in file.chunks():
                 conn = connect(user="postgres", password="SR8P64277H5S5D5S$",
-                               host="kaszubnet-db.postgres.database.azure.com",
+                               host="kaszubnet.postgres.database.azure.com",
                                port=5432,
-                               database="kaszubnet-database")
+                               database="postgres")
 
                 with conn.cursor() as cur:
                     sql = f"UPDATE kaszubnet_app_character set picture = %s where name = '{character_name}';"
