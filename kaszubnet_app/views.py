@@ -86,7 +86,7 @@ class CharacterEditorView(LoginRequiredMixin, UpdateView):
     template_name = "character_editor.html"
     model = Character
     fields = ["name", "birthdate", "rank", "function", "outpost", "origin_outpost", "job", "specialization", "religion",
-              "character_history"]
+              "character_history", "dead", "left_faction"]
     success_url = "/"
 
 
