@@ -192,6 +192,7 @@ class ArtefactView(LoginRequiredMixin, ListView):
 
 class WarehouseMenuView(LoginRequiredMixin, View):
     def get(self, request, **kwargs):
+        print("test")
         return render(request, "warehouse_menu.html")
 
 
